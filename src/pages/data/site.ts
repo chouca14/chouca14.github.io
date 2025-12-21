@@ -1,12 +1,12 @@
 export const site = {
-  name: "YOUR NAME",
+  name: "YOUR Guilhem ROzier Vilardell",
   headline: "Microengineering student | Mechatronics • Data • Prototyping",
   location: "Geneva, Switzerland",
-  email: "you@email.com",
-  phone: "+41 XX XXX XX XX", // optional
+  email: "guilhem.roziervi@hes-so.ch",
+  phone: "+41 78 670 23 79", // optional
   links: {
-    github: "https://github.com/YOURHANDLE",
-    linkedin: "https://www.linkedin.com/in/YOURHANDLE",
+    github: "https://github.com/chouca14",
+    linkedin: "www.linkedin.com/in/guilhem-rozier-vilardell",
   },
 
   // 2–3 lines max. Manufacturing HR loves: outcomes + reliability + teamwork.
