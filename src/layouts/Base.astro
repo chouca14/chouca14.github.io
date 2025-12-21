@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import { site } from "../data/site";
+
+const {
+  title = `${site.name} — Portfolio`,
+  description = site.seo.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.seo.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+  </head>
+
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+
+    <Header currentPath={Astro.url.pathname} />
+
+    <main id="content" class="wrap">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div>© {new Date().getFullYear()} {site.name}</div>
+        <div class="footer-links">
+          <a href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          <span class="dot">·</span>
+          <a href={site.links.github} target="_blank" rel="noreferrer">GitHub</a>
+          <span class="dot">·</span>
+          <a href="/cv.pdf" download>CV</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

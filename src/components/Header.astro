@@ -1,0 +1,35 @@
+---
+import { site } from "../data/site";
+
+const { currentPath = "/" } = Astro.props as { currentPath?: string };
+
+const isProjects = currentPath === "/" || currentPath.startsWith("/projects");
+const isAbout = currentPath.startsWith("/about");
+const isContact = currentPath.startsWith("/contact");
+---
+
+<header class="topbar">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="Go to projects">
+      <div class="brand-name">{site.name}</div>
+      <div class="brand-sub">{site.headline}</div>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/" class:list={{ active: isProjects }} aria-current={isProjects ? "page" : undefined}>
+        Projects
+      </a>
+      <a href="/about" class:list={{ active: isAbout }} aria-current={isAbout ? "page" : undefined}>
+        About
+      </a>
+      <a href="/contact" class:list={{ active: isContact }} aria-current={isContact ? "page" : undefined}>
+        Contact
+      </a>
+    </nav>
+
+    <div class="actions">
+      <a class="link" href="/cv.pdf" download>CV</a>
+      <a class="button" href={`mailto:${site.email}`}>Email</a>
+    </div>
+  </div>
+</header>

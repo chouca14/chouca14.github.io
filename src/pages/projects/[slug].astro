@@ -1,0 +1,88 @@
+---
+import Base from "../../layouts/Base.astro";
+import { site } from "../../data/site";
+import { projects, type Project } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props as { project: Project };
+const title = `${project.title} — ${site.name}`;
+const description = project.subtitle;
+
+const coverSrc = project.cover?.src ?? "/projects/placeholder.svg";
+const coverAlt = project.cover?.alt ?? project.title;
+---
+
+<Base title={title} description={description}>
+  <div class="backRow">
+    <a class="backLink" href="/">← Projects</a>
+  </div>
+
+  <header class="projectHead">
+    <h1>{project.title}</h1>
+    <p class="lead">{project.subtitle}</p>
+
+    <div class="chips">
+      <span class="chip">{project.year}</span>
+      {project.role ? <span class="chip">{project.role}</span> : null}
+      {project.tags.slice(0, 6).map((t) => <span class="chip">{t}</span>)}
+    </div>
+  </header>
+
+  <figure class="heroMedia">
+    <img src={coverSrc} alt={coverAlt} loading="eager" />
+    {project.cover?.caption ? <figcaption>{project.cover.caption}</figcaption> : null}
+  </figure>
+
+  <section class="highlights">
+    <h2>Highlights</h2>
+    <ul>
+      {project.highlights.map((h) => <li>{h}</li>)}
+    </ul>
+  </section>
+
+  <section class="content">
+    {project.sections.map((s) => (
+      <article class="contentBlock">
+        <h2>{s.heading}</h2>
+        {s.paragraphs?.map((p) => <p>{p}</p>)}
+        {s.bullets?.length ? (
+          <ul>
+            {s.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+        ) : null}
+      </article>
+    ))}
+  </section>
+
+  {project.gallery?.length ? (
+    <section class="gallery">
+      <h2>Gallery</h2>
+      <div class="galleryGrid">
+        {project.gallery.map((m) => (
+          <figure class="galleryItem">
+            <img src={m.src} alt={m.alt} loading="lazy" />
+            {m.caption ? <figcaption>{m.caption}</figcaption> : null}
+          </figure>
+        ))}
+      </div>
+    </section>
+  ) : null}
+
+  <section class="cta">
+    <div class="ctaBox">
+      <h2>Want to talk about this project?</h2>
+      <p class="lead">Reach me at <b>{site.email}</b> — I reply fast.</p>
+      <div class="ctaActions">
+        <a class="button" href={`mailto:${site.email}`}>Email</a>
+        <a class="link" href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="link" href="/cv.pdf" download>CV</a>
+      </div>
+    </div>
+  </section>
+</Base>

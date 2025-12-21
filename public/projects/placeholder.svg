@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#f7f7f8"/>
+  <rect x="60" y="60" width="1080" height="630" fill="#ffffff" stroke="#e9eaec" stroke-width="4" rx="24"/>
+  <g fill="#5f6368" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" text-anchor="middle">
+    <text x="600" y="360" font-size="34">Project image placeholder</text>
+    <text x="600" y="410" font-size="18">Replace in /public/projects/ and update src/data/projects.ts</text>
+  </g>
+</svg>

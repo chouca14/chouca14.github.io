@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+
+const title = `Contact — ${site.name}`;
+const description = site.seo.description;
+---
+
+<Base title={title} description={description}>
+  <section class="pageHead">
+    <h1>Contact</h1>
+    <p class="lead">
+      The fastest way to reach me is email. I’m happy to discuss internships, projects, or collaboration.
+    </p>
+  </section>
+
+  <section class="contactBox">
+    <div class="card">
+      <h2>Email</h2>
+      <p class="lead"><a class="link" href={`mailto:${site.email}`}>{site.email}</a></p>
+      <div class="ctaActions">
+        <a class="button" href={`mailto:${site.email}`}>Email me</a>
+        <a class="link" href="/cv.pdf" download>CV</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Links</h2>
+      <ul>
+        <li><a class="link" href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
+        <li><a class="link" href={site.links.github} target="_blank" rel="noreferrer">GitHub</a></li>
+      </ul>
+      <p class="meta">Location: {site.location}</p>
+    </div>
+  </section>
+</Base>

@@ -1,8 +1,8 @@
 ---
-import Base from "../layouts/Base.astro";
-import { site } from "../data/site";
-import { projects } from "../data/projects";
-import ProjectCard from "../components/ProjectCard.astro";
+import Base from "../../layouts/Base.astro";
+import { site } from "../../data/site";
+import { projects } from "../../data/projects";
+import ProjectCard from "../../components/ProjectCard.astro";
 
 const title = `Projects — ${site.name}`;
 const description = site.seo.description;
@@ -11,12 +11,7 @@ const description = site.seo.description;
 <Base title={title} description={description}>
   <section class="pageHead">
     <h1>Projects</h1>
-    <p class="lead">
-      {site.about.intro}
-    </p>
-    <p class="lead">
-      {site.about.goal}
-    </p>
+    <p class="lead">This page mirrors the homepage. If you bookmarked it, you’re in the right place.</p>
   </section>
 
   <section class="projectsGrid" aria-label="Project list">

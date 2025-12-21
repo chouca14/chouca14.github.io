@@ -1,0 +1,98 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+
+const title = `About — ${site.name}`;
+const description = site.seo.description;
+---
+
+<Base title={title} description={description}>
+  <section class="pageHead">
+    <h1>About</h1>
+    <p class="lead">{site.about.intro}</p>
+    <p class="lead">{site.about.goal}</p>
+  </section>
+
+  <section class="twoCol">
+    <div class="card">
+      <h2>How I work</h2>
+      <ul>
+        {site.about.bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Quick info</h2>
+      <ul>
+        <li><b>Location:</b> {site.location}</li>
+        <li><b>Email:</b> <a class="link" href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><b>Phone:</b> {site.phone}</li>
+        <li><b>Languages:</b> {site.languages.join(" · ")}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Experience</h2>
+    <div class="stack">
+      {site.experience.map((e) => (
+        <article class="item">
+          <div class="itemTop">
+            <div>
+              <div class="itemTitle">{e.company}</div>
+              <div class="itemSub">{e.role} · {e.location}</div>
+            </div>
+            <div class="itemMeta">{e.period}</div>
+          </div>
+          <ul>
+            {e.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Education</h2>
+    <div class="stack">
+      {site.education.map((ed) => (
+        <article class="item">
+          <div class="itemTop">
+            <div>
+              <div class="itemTitle">{ed.school}</div>
+              <div class="itemSub">{ed.degree}</div>
+              {ed.note ? <div class="itemSub">{ed.note}</div> : null}
+            </div>
+            <div class="itemMeta">{ed.period}</div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Skills</h2>
+    <div class="skillsGrid">
+      {Object.entries(site.skills).map(([k, v]) => (
+        <div class="skillCard">
+          <div class="skillTitle">{k}</div>
+          <div class="skillList">
+            {v.map((x) => <span class="chip">{x}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="ctaBox">
+      <h2>Internship</h2>
+      <p class="lead">If you have an industrial / R&D role, I’d love to contribute and learn fast.</p>
+      <div class="ctaActions">
+        <a class="button" href="/cv.pdf" download>Download CV</a>
+        <a class="link" href={`mailto:${site.email}`}>Email</a>
+        <a class="link" href={site.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</Base>

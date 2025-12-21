@@ -1,0 +1,24 @@
+---
+import type { Project } from "../data/projects";
+
+const { project } = Astro.props as { project: Project };
+
+const href = `/projects/${project.slug}`;
+const coverSrc = project.cover?.src ?? "/projects/placeholder.svg";
+const coverAlt = project.cover?.alt ?? project.title;
+---
+
+<a class="projectCard" href={href} aria-label={`Open project: ${project.title}`}>
+  <div class="projectThumb" aria-hidden="true">
+    <img src={coverSrc} alt={coverAlt} loading="lazy" />
+  </div>
+
+  <div class="projectText">
+    <div class="projectTitleRow">
+      <h3 class="projectTitle">{project.title}</h3>
+      <span class="projectYear">{project.year}</span>
+    </div>
+
+    <p class="projectSubtitle">{project.subtitle}</p>
+  </div>
+</a>
