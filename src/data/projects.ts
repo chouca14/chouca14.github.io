@@ -33,21 +33,21 @@ export const projects: Project[] = [
   {
     slug: "jar-labelling-machine",
     title: "Jar Labelling Machine",
-    subtitle: "Automation machine for small series — adjustable, multi-jar formats, industrial mindset",
+    subtitle: "Automation machine for small series — adjustable, multi-jar formats, industrial mindset, designed for a local beekeeper",
     year: "2024",
     tags: ["Automation", "PLC", "Mechanism design", "Inventor", "TIA Portal"],
     role: "Design & build (mechanics + electronics + PLC logic)",
     highlights: [
-      "Met specs: 14 pots/min throughput with 99% reliability across multiple jar formats",
+      "Met specs: 14 pots/min with 99% reliability across multiple jar formats",
       "Designed mechanically synchronized rotation + label peel-off system",
       "Delivered a robust adjustment mechanism inspired by 3D-printer Z-height concepts",
     ],
     links: [{ label: "LinkedIn (add link)", href: "#" }],
-    cover: { src: "/projects/placeholder.svg", alt: "Jar labelling machine cover image" },
+    cover: { src: "/projects/jar-labelling/jar-labelling1.png", alt: "Jar labelling machine cover image" },
     gallery: [
-      { src: "/projects/placeholder.svg", alt: "Machine overview (placeholder)", caption: "Overview" },
-      { src: "/projects/placeholder.svg", alt: "Mechanism detail (placeholder)", caption: "Mechanism detail" },
-      { src: "/projects/placeholder.svg", alt: "Label path / adjustment (placeholder)", caption: "Adjustment system" },
+      { src: "/projects/jar-labelling/jar-labelling1.png", alt: "Machine overview (placeholder)", caption: "Overview" },
+      { src: "/projects/jar-labelling/jar-labelling2.png", alt: "Mechanism detail (placeholder)", caption: "Mechanism detail" },
+      { src: "/projects/jar-labelling/jar-labelling3.png", alt: "Label path / adjustment (placeholder)", caption: "Adjustment system" },
     ],
     sections: [
       {
@@ -92,11 +92,11 @@ export const projects: Project[] = [
       "Arduino Uno C++ code for I2C module integration",
       "Added capacity for 4 extra components via simple connections",
     ],
-    cover: { src: "/projects/placeholder.svg", alt: "EASI2C board cover image" },
+    cover: { src: "/projects/easi2c/easi2c1.JPG", alt: "EASI2C board cover image" },
     gallery: [
-      { src: "/projects/placeholder.svg", alt: "PCB top view (placeholder)", caption: "PCB" },
-      { src: "/projects/placeholder.svg", alt: "Wiring / integration (placeholder)", caption: "Integration" },
-      { src: "/projects/placeholder.svg", alt: "Test setup (placeholder)", caption: "Testing" },
+      { src: "/projects/easi2c/easi2c1.JPG", alt: "PCB top view (placeholder)", caption: "PCB" },
+      { src: "/projects/easi2c/easi2c2.png", alt: "Wiring prototype", caption: "wiring" },
+      { src: "/projects/easi2c/easi2c3.png", alt: "PCB", caption: "PCB" },
     ],
     sections: [
       { heading: "Overview", paragraphs: ["A circuit designed for easy integration of I2C communication modules, aimed at making prototypes faster and cleaner."] },
@@ -151,11 +151,11 @@ export const projects: Project[] = [
       "Optimized production time, printer settings, and post-processing",
       "Sold more than 1000 fasteners, mainly to the medical sector",
     ],
-    cover: { src: "/projects/placeholder.svg", alt: "GS3Dfactory cover image" },
+    cover: { src: "/projects/gs3dfactory/gs3dfactory1.jpeg", alt: "GS3Dfactory cover image" },
     gallery: [
-      { src: "/projects/placeholder.svg", alt: "Product (placeholder)", caption: "Product" },
-      { src: "/projects/placeholder.svg", alt: "Production setup (placeholder)", caption: "Production" },
-      { src: "/projects/placeholder.svg", alt: "Iteration examples (placeholder)", caption: "Iterations" },
+      { src: "/projects/gs3dfactory/gs3dfactory1.jpeg", alt: "Product", caption: "Product" },
+      { src: "/projects/gs3dfactory/gs3dfactory2.JPG", alt: "Production", caption: "Production" },
+      { src: "/projects/gs3dfactory/gs3dfactory3.JPG", alt: "Packaging", caption: "Packaging" },
     ],
     sections: [
       { heading: "Overview", paragraphs: ["Co-created a business and delivered a real product under real constraints: design, prototypes, production optimization, and delivery."] },
@@ -177,11 +177,11 @@ export const projects: Project[] = [
       "Configured Betaflight + telemetry and validated real performance",
       "Operational drone with ~1 km range and >100 km/h top speed",
     ],
-    cover: { src: "/projects/placeholder.svg", alt: "FPV drone cover image" },
+    cover: { src: "/projects/fpv/fpv1.png", alt: "FPV drone cover image" },
     gallery: [
-      { src: "/projects/placeholder.svg", alt: "Drone build (placeholder)", caption: "Build" },
-      { src: "/projects/placeholder.svg", alt: "Electronics stack (placeholder)", caption: "Electronics" },
-      { src: "/projects/placeholder.svg", alt: "Flight / results (placeholder)", caption: "Results" },
+      { src: "/projects/fpv/fpv1.png", alt: "Drone build (placeholder)", caption: "Build" },
+      { src: "/projects/fpv/fpv2.png", alt: "Electronics stack (placeholder)", caption: "Electronics" },
+      { src: "/projects/fpv/fpv3.png", alt: "Flight / results (placeholder)", caption: "Results" },
     ],
     sections: [
       { heading: "Overview", paragraphs: ["Assembling and programming an FPV drone with a focus on reliability, clean integration, and real-world performance."] },

@@ -1,6 +1,6 @@
 export const site = {
   name: "Guilhem Rozier Vilardell",
-  headline: "Microengineering (Electronics) — prototyping, automation, manufacturing mindset",
+  headline: "Microengineering, electronics — Everything in life is about problem solving.",
   location: "Geneva / Nyon, Switzerland",
 
   email: "guilhem.roziervi@hes-so.ch",
@@ -19,7 +19,7 @@ export const site = {
 
   about: {
     intro:
-      "Microengineering student specializing in electronics, with strong hands-on experience in manufacturing, automation, and prototyping.",
+      "2nd year in BCs. Microengineering. Specializing in electronics, with strong hands-on experience in manufacturing, automation, and prototyping.",
     goal:
       "Seeking an industrial or R&D internship where I can bring practical engineering skills, autonomy, and systems-level problem solving.",
     bullets: [
