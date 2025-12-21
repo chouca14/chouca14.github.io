@@ -13,6 +13,7 @@ function pillList(items: string[]) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{site.name} — Engineering Portfolio</title>
     <meta name="description" content={`${site.name} — ${site.headline}`} />
+
     <style>
       :root{
         --bg:#0b0f19; --card:#10182a; --text:#eaf0ff; --muted:#a9b6da;
@@ -29,10 +30,10 @@ function pillList(items: string[]) {
       .wrap{max-width:1000px;margin:0 auto;padding:26px 18px 60px}
       .top{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch}
       .card{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:18px;padding:18px}
-      .hero{flex:1 1 620px}
-      .side{flex:0 0 320px}
-      h1{margin:0 0 6px;font-size:30px;letter-spacing:.2px}
-      .headline{color:var(--muted);margin-bottom:12px}
+      .hero{flex:2 1 620px}
+      .side{flex:1 1 320px}
+      h1{margin:0;font-size:24px;letter-spacing:.2px}
+      .headline{color:var(--muted);margin-top:6px}
       .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
       .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;
         border:1px solid var(--line);background:rgba(255,255,255,.03)}
@@ -50,9 +51,20 @@ function pillList(items: string[]) {
       ul{margin:10px 0 0;padding-left:18px}
       li{margin:6px 0;color:#dbe6ff}
       footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
-      .kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-      .kpi .item{padding:10px 12px}
-      code{color:#d9e2ff}
+      .thumb{
+        width:100%;
+        height:160px;
+        border-radius:12px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.02);
+        overflow:hidden;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:var(--muted);
+        font-size:12px;
+      }
+      .thumb img{width:100%;height:100%;object-fit:cover;display:block}
     </style>
   </head>
 
@@ -67,37 +79,37 @@ function pillList(items: string[]) {
               <div class="headline">{site.headline} · {site.location}</div>
             </div>
             <div class="row">
-              <a class="btn" href="/cv.pdf" download>Download CV (PDF)</a>
+              <a class="btn" href="/cv.pdf" download>CV (PDF)</a>
+              <a class="btn" href="/portfolio.pdf" download>Portfolio (PDF)</a>
               <a class="btn" href={`mailto:${site.email}`}>Email</a>
             </div>
           </div>
 
-          <div class="item">
+          <div class="item" style="margin-top:14px">
             <h2>Profile</h2>
             <ul>
               {site.summary.map((s) => <li>{s}</li>)}
             </ul>
-          </div>
 
-          <div class="row" style="margin-top:12px">
-            <a class="pill" href={site.links.github} target="_blank">GitHub</a>
-            <a class="pill" href={site.links.linkedin} target="_blank">LinkedIn</a>
-            <span class="pill">{site.email}</span>
-          </div>
-
-          <!-- Optional “proof” boxes (edit later if you want) -->
-          <div class="kpi">
-            <div class="item"><div class="meta">Focus</div><div class="title">Prototyping + Validation</div></div>
-            <div class="item"><div class="meta">Strength</div><div class="title">Debugging systems</div></div>
-            <div class="item"><div class="meta">Style</div><div class="title">Document & iterate</div></div>
+            {site.focus?.length ? (
+              <div class="row" style="margin-top:12px">
+                {site.focus.map((f) => <span class="pill">{f}</span>)}
+              </div>
+            ) : null}
           </div>
         </div>
 
         <aside class="card side">
           <h2>Contact</h2>
           <div class="row" style="flex-direction:column;align-items:flex-start;">
-            <span class="pill">{site.email}</span>
+            <a class="pill" href={`mailto:${site.email}`}>{site.email}</a>
             {site.phone ? <span class="pill">{site.phone}</span> : null}
+          </div>
+
+          <h2 style="margin-top:16px">Links</h2>
+          <div class="row">
+            <a class="pill" href={site.links.linkedin} target="_blank">LinkedIn</a>
+            <a class="pill" href={site.links.github} target="_blank">GitHub</a>
           </div>
 
           <h2 style="margin-top:16px">Languages</h2>
@@ -105,14 +117,35 @@ function pillList(items: string[]) {
             {site.languages.map((l) => <span class="pill">{l.name} · {l.level}</span>)}
           </div>
 
-          <h2 style="margin-top:16px">What recruiters like</h2>
-          <div class="item">
-            <div class="meta">
-              This site is structured to show: <br/>
-              <b>skills → proof → clarity → reliability</b>
-            </div>
+          <h2 style="margin-top:16px">Education</h2>
+          <div class="row" style="flex-direction:column;align-items:flex-start;">
+            {site.education.map((e) => (
+              <div class="item" style="width:100%">
+                <div class="title">{e.degree}</div>
+                <div class="meta">{e.school} · {e.dates}</div>
+                {e.details ? <div class="meta">{e.details}</div> : null}
+              </div>
+            ))}
           </div>
         </aside>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="grid">
+        <div class="card span12">
+          <h2>Industry experience</h2>
+          <div class="grid" style="margin-top:0">
+            {site.experience.map((x) => (
+              <div class="item span6">
+                <div class="title">{x.company} — {x.role}</div>
+                <div class="meta">{x.location} · {x.dates}</div>
+                <ul>
+                  {x.bullets.map((b) => <li>{b}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <!-- COMPETENCIES -->
@@ -131,24 +164,29 @@ function pillList(items: string[]) {
               <div class="row" style="margin-top:8px" set:html={pillList(site.competencies.Engineering)} />
             </div>
             <div class="item span6">
-              <div class="title">Software & data</div>
+              <div class="title">Software & control</div>
               <div class="meta">Automation + analysis</div>
               <div class="row" style="margin-top:8px" set:html={pillList(site.competencies.SoftwareData)} />
             </div>
             <div class="item span6">
-              <div class="title">Tools</div>
+              <div class="title">Electronics & tools</div>
               <div class="meta">Hands-on work</div>
               <div class="row" style="margin-top:8px" set:html={pillList(site.competencies.Tools)} />
             </div>
           </div>
         </div>
 
-        <!-- SCHOOL PROJECTS -->
+        <!-- PROJECTS -->
         <div class="card span12">
-          <h2>School projects (proof of rigor)</h2>
+          <h2>Selected engineering projects</h2>
+
           <div class="grid" style="margin-top:0">
             {site.schoolProjects.map((p) => (
               <div class="item span6">
+                <div class="thumb" style="margin-bottom:10px">
+                  {p.image ? <img src={p.image} alt={p.imageAlt ?? ""} loading="lazy" /> : <span>Project image (add later)</span>}
+                </div>
+
                 <div class="title">{p.title}</div>
                 <div class="row" style="margin-top:8px">
                   {p.tags.map((t) => <span class="pill">{t}</span>)}
@@ -164,14 +202,14 @@ function pillList(items: string[]) {
               </div>
             ))}
           </div>
-        </div>
 
-        <!-- PERSONAL PROJECTS -->
-        <div class="card span12">
-          <h2>Personal projects (proof of autonomy)</h2>
           <div class="grid" style="margin-top:0">
             {site.personalProjects.map((p) => (
               <div class="item span6">
+                <div class="thumb" style="margin-bottom:10px">
+                  {p.image ? <img src={p.image} alt={p.imageAlt ?? ""} loading="lazy" /> : <span>Project image (add later)</span>}
+                </div>
+
                 <div class="title">{p.title}</div>
                 <div class="row" style="margin-top:8px">
                   {p.tags.map((t) => <span class="pill">{t}</span>)}
@@ -191,7 +229,7 @@ function pillList(items: string[]) {
 
         <!-- HOBBIES -->
         <div class="card span12">
-          <h2>Hobbies (culture fit + mindset)</h2>
+          <h2>Hobbies</h2>
           <div class="row">
             {site.hobbies.map((h) => <span class="pill">{h}</span>)}
           </div>
