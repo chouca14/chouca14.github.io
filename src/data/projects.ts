@@ -67,7 +67,7 @@ export const projects: Project[] = [
       },
       {
         heading: "Results",
-        bullets: ["14 pots per minute throughput", "99% operational reliability", "Improved throughput vs baseline (CV: +180%)"],
+        bullets: ["14 pots per minute throughput", "99% operational reliability", "Improved production by +180% compared to manual labelling" ],
       },
       {
         heading: "Why this matters to industry",
