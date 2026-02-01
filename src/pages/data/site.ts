@@ -14,9 +14,9 @@ export const site = {
 
   // ---- Quick positioning (HR scans this in ~10 seconds) ----
   summary: [
-    "Microengineering student (electronics) with hands-on experience in manufacturing, automation and prototyping.",
-    "I design and build end-to-end systems: mechanical design → electronics/firmware → test & iteration.",
-    "Seeking an industrial or R&D internship where I can contribute to reliable products, clear documentation and measurable results.",
+   // "Microengineering student (electronics) with hands-on experience in manufacturing, automation and prototyping.",
+    //"I design and build end-to-end systems: mechanical design → electronics/firmware → test & iteration.",
+    //"Seeking an industrial or R&D internship where I can contribute to reliable products, clear documentation and measurable results.",
   ],
 
   // Optional: small “focus” pills (safe + relevant)
