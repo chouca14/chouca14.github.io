@@ -164,7 +164,7 @@ export const projects: Project[] = [
       { heading: "What this shows", bullets: ["Ownership and execution", "Real production constraints (time, repeatability, quality)", "Customer-driven iteration"] },
     ],
   },
-
+  
   {
     slug: "fpv-drone",
     title: "FPV Drone Build (CHOUCA)",
@@ -190,4 +190,59 @@ export const projects: Project[] = [
       { heading: "What this shows", bullets: ["Hands-on electronics confidence", "Troubleshooting under constraints", "Performance validation, not just assembly"] },
     ],
   },
-];
+  {
+  slug: "Mission CDG",
+  title: "Robotics contest – Mission CDG",
+  subtitle: "1st place robotics contest — system architecture, constraint-driven design, and execution under uncertainty",
+  year: "2025",
+  tags: ["Robotics", "Embedded systems", "Arduino", "System architecture", "Design trade-offs"],
+  role: "Project manager",
+  highlights: [
+    "Architected a two-robot system to decouple locomotion and gap-crossing constraints",
+    "Achieved full mission reliability without sensors or wireless communication",
+    "Completed the course in 24 seconds, fastest run of the competition",
+  ],
+  cover: { src: "/projects/CDG/CDG1.JPG", alt: "Robotics contest cover image" },
+  gallery: [
+    { src: "/projects/CDG/CDG1.JPG", alt: "System architecture overview", caption: "Two-robot architecture" },
+    { src: "/projects/CDG/CDG2.JPG", alt: "Bridge robot deployment", caption: "Bridge robot" },
+    { src: "/projects/CDG/CDG3.png", alt: "Water transport and delivery", caption: "Water transport robot" },
+    { src: "/projects/CDG/CDG4.png", alt: "System architecture overview", caption: "Two-robot architecture" },
+    { src: "/projects/CDG/CDG5.MP4", alt: "Bridge robot deployment", caption: "Bridge robot" },
+    { src: "/projects/CDG/CDG6.PNGgit", alt: "Water transport and delivery", caption: "Water transport robot" },
+  ],
+  sections: [
+    {
+      heading: "Overview",
+      paragraphs: [
+        "Engineering robotics contest focused on transporting 800 mL of water across two 5 m-long tables separated by a 50 cm gap, with a strict 40 × 40 × 40 cm size constraint. The project emphasized system-level design, constraint decomposition, and reliability over algorithmic complexity.",
+      ],
+    },
+    {
+      heading: "What I did",
+      bullets: [
+        "Led system architecture decisions based on physical constraints and failure modes",
+        "Decomposed the problem into two independent functions: gap crossing and water transport",
+        "Designed and programmed two Arduino-controlled robots with deterministic wired communication",
+        "Established a sensorless control strategy based on repeatable initial conditions and iterative parameter tuning",
+      ],
+    },
+    {
+      heading: "Results",
+      bullets: [
+        "Consistent transport and delivery of 800 mL of water without spillage",
+        "Robust crossing of a 50 cm gap exceeding the transport robot footprint",
+        "Winning run completed in 24 seconds",
+      ],
+    },
+    {
+      heading: "What this shows",
+      bullets: [
+        "Ability to reduce complex engineering problems into controllable subsystems",
+        "Strong preference for deterministic, low-complexity solutions",
+        "Engineering judgment focused on reliability, validation, and execution speed",
+      ],
+    },
+  ],
+}
+]
