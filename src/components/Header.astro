@@ -30,3 +30,30 @@ const isContact = currentPath.startsWith("/contact");
         href="/projects"
         class:list={{ active: isProjects }}
         aria-current={isProjects ? "page" : undefined}
+      >
+        Projects
+      </a>
+
+      <a
+        href="/about"
+        class:list={{ active: isAbout }}
+        aria-current={isAbout ? "page" : undefined}
+      >
+        About
+      </a>
+
+      <a
+        href="/contact"
+        class:list={{ active: isContact }}
+        aria-current={isContact ? "page" : undefined}
+      >
+        Contact
+      </a>
+    </nav>
+
+    <div class="actions">
+      <a class="link" href="/Rozier_Vilardell_Guilhem_CV_ENG.pdf" download>CV</a>
+      <a class="button" href={`mailto:${site.email}`}>Email</a>
+    </div>
+  </div>
+</header>
