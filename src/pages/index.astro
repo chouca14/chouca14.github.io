@@ -10,7 +10,8 @@ const description = site.seo.description;
 // ASSUMPTION:
 // projects[] is ordered oldest → newest
 // If wrong, swap to: projects.slice(0, 2)
-const latest = projects.slice(-2).reverse();
+const latest = projects.slice(0, 2);
+
 ---
 
 <Base title={title} description={description}>
@@ -18,7 +19,7 @@ const latest = projects.slice(-2).reverse();
   <section class="hero" aria-label="Introduction">
     <div class="heroLeft">
       <img
-        src="/me.jpg"
+        src="/me.JPG"
         alt={`${site.name} portrait`}
         class="portrait"
         loading="eager"
@@ -28,7 +29,7 @@ const latest = projects.slice(-2).reverse();
 
     <div class="heroRight">
       <h1 class="headline">
-        Hi, I’m Guilhem Rozier Vilardell, a Microengineering student.
+        I’m {site.name}, a Microengineering student.
       </h1>
 
       <p class="lead">
