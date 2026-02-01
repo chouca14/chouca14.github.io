@@ -1,41 +1,118 @@
 ---
 import Base from "../layouts/Base.astro";
 import { site } from "../data/site";
-import { projects } from "../data/projects";
-import ProjectCard from "../components/ProjectCard.astro";
 
 const title = `${site.name} — Home`;
 const description = site.seo.description;
 
-// show a few projects on the homepage (adjust number if you want)
-const featured = projects.slice(0, 6);
+// Edit these strings (keep it short)
+const headline = "I’m Gui Roz, a Microengineering student.";
+const sub1 =
+  "2nd year BSc — specializing in electronics, with hands-on experience in manufacturing, automation, and prototyping.";
+const sub2 =
+  "Seeking an industrial or R&D internship where I can contribute practical engineering skills and systems-level problem solving.";
 ---
 
 <Base title={title} description={description}>
-  <section class="pageHead">
-    <h1>{site.name}</h1>
-    <p class="lead">
-      Microengineering (electronics) — prototyping, automation, and manufacturing.
-    </p>
+  <section class="hero" aria-label="Introduction">
+    <div class="heroLeft">
+      <img
+        src="/me.jpg"
+        alt={`${site.name} portrait`}
+        class="portrait"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
 
-    <p>
-      <a href="/projects">Browse all projects</a> ·
-      <a href="/about">About</a> ·
-      <a href="/contact">Contact</a>
-    </p>
-  </section>
+    <div class="heroRight">
+      <h1 class="headline">{headline}</h1>
 
-  <section aria-label="Featured projects">
-    <h2>Featured projects</h2>
+      <p class="lead">{sub1}</p>
+      <p class="lead">{sub2}</p>
 
-    <section class="projectsGrid" aria-label="Project list">
-      {featured.map((p) => (
-        <ProjectCard project={p} />
-      ))}
-    </section>
-
-    <p style="margin-top: 1rem;">
-      <a href="/projects">See all projects →</a>
-    </p>
+      <div class="ctaRow" aria-label="Quick links">
+        <a class="btn" href="/projects">Projects</a>
+        <a class="btn" href="/about">About</a>
+        <a class="btn" href="/contact">Contact</a>
+      </div>
+    </div>
   </section>
 </Base>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 3.5rem 0 2rem 0;
+  }
+
+  .heroLeft {
+    display: flex;
+    justify-content: center;
+  }
+
+  .portrait {
+    width: min(460px, 90%);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .heroRight {
+    max-width: 640px;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    line-height: 1.05;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 0 0.85rem 0;
+    opacity: 0.92;
+  }
+
+  .ctaRow {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      padding-top: 2.25rem;
+    }
+    .heroLeft {
+      justify-content: flex-start;
+    }
+    .portrait {
+      width: min(380px, 100%);
+    }
+  }
+</style>
