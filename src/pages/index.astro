@@ -4,24 +4,38 @@ import { site } from "../data/site";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard.astro";
 
-const title = `Projects — ${site.name}`;
+const title = `${site.name} — Home`;
 const description = site.seo.description;
+
+// show a few projects on the homepage (adjust number if you want)
+const featured = projects.slice(0, 6);
 ---
 
 <Base title={title} description={description}>
   <section class="pageHead">
-    <h1>Projects</h1>
+    <h1>{site.name}</h1>
     <p class="lead">
-      {site.about.intro}
+      Microengineering (electronics) — prototyping, automation, and manufacturing.
     </p>
-    <p class="lead">
-      {site.about.goal}
+
+    <p>
+      <a href="/projects">Browse all projects</a> ·
+      <a href="/about">About</a> ·
+      <a href="/contact">Contact</a>
     </p>
   </section>
 
-  <section class="projectsGrid" aria-label="Project list">
-    {projects.map((p) => (
-      <ProjectCard project={p} />
-    ))}
+  <section aria-label="Featured projects">
+    <h2>Featured projects</h2>
+
+    <section class="projectsGrid" aria-label="Project list">
+      {featured.map((p) => (
+        <ProjectCard project={p} />
+      ))}
+    </section>
+
+    <p style="margin-top: 1rem;">
+      <a href="/projects">See all projects →</a>
+    </p>
   </section>
 </Base>
