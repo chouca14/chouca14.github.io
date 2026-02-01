@@ -1,23 +1,24 @@
 ---
 import Base from "../layouts/Base.astro";
 import { site } from "../data/site";
+import { projects } from "../data/projects";
+import ProjectCard from "../components/ProjectCard.astro";
 
 const title = `${site.name} — Home`;
 const description = site.seo.description;
 
-// Edit these strings (keep it short)
-const headline = "Hi, I’m Guilhem Rozier Vilardell, a Microengineering student.";
-const sub1 =
-  "2nd year BSc — specializing in electronics, with hands-on experience in manufacturing, automation, and prototyping.";
-const sub2 =
-  "Seeking an industrial or R&D internship where I can contribute practical engineering skills and systems-level problem solving.";
+// ASSUMPTION:
+// projects[] is ordered oldest → newest
+// If wrong, swap to: projects.slice(0, 2)
+const latest = projects.slice(-2).reverse();
 ---
 
 <Base title={title} description={description}>
+  <!-- HERO -->
   <section class="hero" aria-label="Introduction">
     <div class="heroLeft">
       <img
-        src="/me.JPG"
+        src="/me.jpg"
         alt={`${site.name} portrait`}
         class="portrait"
         loading="eager"
@@ -26,17 +27,40 @@ const sub2 =
     </div>
 
     <div class="heroRight">
-      <h1 class="headline">{headline}</h1>
+      <h1 class="headline">
+        Hi, I’m Guilhem Rozier Vilardell, a Microengineering student.
+      </h1>
 
-      <p class="lead">{sub1}</p>
-      <p class="lead">{sub2}</p>
+      <p class="lead">
+        2nd year BSc — specializing in electronics, with hands-on experience in
+        manufacturing, automation, and prototyping.
+      </p>
 
-      <div class="ctaRow" aria-label="Quick links">
+      <p class="lead">
+        Seeking an industrial or R&D internship where I can contribute practical
+        engineering skills and systems-level problem solving.
+      </p>
+
+      <div class="ctaRow">
         <a class="btn" href="/projects">Projects</a>
         <a class="btn" href="/about">About</a>
         <a class="btn" href="/contact">Contact</a>
       </div>
     </div>
+  </section>
+
+  <!-- LATEST PROJECTS -->
+  <section aria-label="Latest projects" class="latest">
+    <div class="latestHead">
+      <h2>Latest projects</h2>
+      <a href="/projects">See all →</a>
+    </div>
+
+    <section class="projectsGrid" aria-label="Project preview">
+      {latest.map((p) => (
+        <ProjectCard project={p} />
+      ))}
+    </section>
   </section>
 </Base>
 
@@ -46,7 +70,7 @@ const sub2 =
     grid-template-columns: 1fr 1.2fr;
     gap: 3rem;
     align-items: center;
-    padding: 3.5rem 0 2rem 0;
+    padding: 3.5rem 0 2.5rem 0;
   }
 
   .heroLeft {
@@ -102,15 +126,26 @@ const sub2 =
     transform: translateY(-1px);
   }
 
+  .latest {
+    margin-top: 3rem;
+  }
+
+  .latestHead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
   @media (max-width: 900px) {
     .hero {
       grid-template-columns: 1fr;
       gap: 1.75rem;
       padding-top: 2.25rem;
     }
-    .heroLeft {
-      justify-content: flex-start;
-    }
+
     .portrait {
       width: min(380px, 100%);
     }
