@@ -202,14 +202,13 @@ export const projects: Project[] = [
     "Achieved full mission reliability without sensors or wireless communication",
     "Completed the course in 24 seconds, fastest run of the competition",
   ],
-  cover: { src: "/projects/CDG/CDG1.JPG", alt: "Robotics contest cover image" },
+  cover: { src: "/projects/CDG/CDG2.JPG", alt: "Our solution" },
   gallery: [
-    { src: "/projects/CDG/CDG1.JPG", alt: "System architecture overview", caption: "Two-robot architecture" },
-    { src: "/projects/CDG/CDG2.JPG", alt: "Bridge robot deployment", caption: "Bridge robot" },
+    { src: "/projects/CDG/CDG1.JPG", alt: "System architecture overview", caption: "The dream team" },
+    { src: "/projects/CDG/CDG2.JPG", alt: "Bridge robot deployment", caption: "Two-robot architecture" },
     { src: "/projects/CDG/CDG3.png", alt: "Water transport and delivery", caption: "Water transport robot" },
-    { src: "/projects/CDG/CDG4.png", alt: "System architecture overview", caption: "Two-robot architecture" },
-    { src: "/projects/CDG/CDG5.MP4", alt: "Bridge robot deployment", caption: "Bridge robot" },
-    { src: "/projects/CDG/CDG6.PNGgit", alt: "Water transport and delivery", caption: "Water transport robot" },
+    { src: "/projects/CDG/CDG4.png", alt: "System architecture overview", caption: "Bridge robot" },
+    { src: "/projects/CDG/CDG6.PNG", alt: "Water transport and delivery", caption: "Winner designation" },
   ],
   sections: [
     {
