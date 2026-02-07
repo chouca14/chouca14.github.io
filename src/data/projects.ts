@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
   slug: "Mission CDG",
   title: "Robotics contest – Mission CDG",
-  subtitle: "1st place robotics contest — system architecture, constraint-driven design, and execution under uncertainty",
+  subtitle: "Winner of the robotics contest at University of applied sciences, HEPIA — system architecture, constraint-driven design, and execution under uncertainty",
   year: "2025",
   tags: ["Robotics", "Embedded systems", "Arduino", "System architecture", "Design trade-offs"],
   role: "Project manager",
