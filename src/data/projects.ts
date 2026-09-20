@@ -31,6 +31,107 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "akordator",
+    title: "Akordator – Analog Bass Guitar Tuner",
+    subtitle: "HEPIA electronics design project — a portable 4-string bass tuner built with analog electronics only: instrumentation amplifier, band-pass filter bank and comparator LED display, powered by supercapacitors, simulated in LTspice and laid out in Altium",
+    year: "2026",
+    tags: ["Analog electronics", "PCB design", "Altium", "LTspice", "Active filters", "Supercapacitors"],
+    role: "Analog design, LTspice simulation & PCB layout (Altium)",
+    highlights: [
+      "Microcontroller-free tuner for a 4-string bass (E1 41.2 · A1 55 · D2 73.4 · G2 98 Hz): filtering turns a frequency measurement into an LED level bar",
+      "Sized and simulated every block in LTspice: instrumentation amplifier (gain 7.18), four MFB band-pass filters, summer, comparator ladder and supercapacitor power path (simulated autonomy above the 1 h requirement)",
+      "Supercapacitors recharged over USB (LTC3625 balanced charger) and regulated to 3.3 V (LTC3240-3.3) while the stack discharges from 4.8 V down to about 1.7 V",
+      "Captured the six-sheet Altium schematic and routed the V1.0 mixed-signal PCB: functional zones, eight ferrite-bead supply islands and about 30 test points",
+    ],
+    cover: { src: "/projects/akordator/akordator-cover-pcb.png", alt: "Akordator PCB layout in Altium (HepiaPitch V1.0)", caption: "PCB layout, HepiaPitch V1.0 (Altium)" },
+    gallery: [
+      { src: "/projects/akordator/akordator-block-diagram.svg", alt: "Akordator signal chain and power path", caption: "System architecture: signal path and power path" },
+      { src: "/projects/akordator/akordator-schematic-top.png", alt: "Altium top-level schematic", caption: "Altium — top-level sheet (jack input, filter/comparator blocks, USB charging, supercaps, ON/OFF)" },
+      { src: "/projects/akordator/akordator-schematic-power.png", alt: "Altium power sheet", caption: "Altium — power sheet: LTC3625 supercap charger, LTC3240-3.3 converter, 1.5 V reference" },
+      { src: "/projects/akordator/akordator-schematic-amplifier.png", alt: "Altium instrumentation amplifier sheet", caption: "Altium — instrumentation amplifier (gain ≈ 8.4)" },
+      { src: "/projects/akordator/akordator-schematic-filters.png", alt: "Altium band-pass filter sheet", caption: "Altium — band-pass filter sheet (E1 / A1 cells)" },
+      { src: "/projects/akordator/akordator-schematic-comparators.png", alt: "Altium summer and comparator sheet", caption: "Altium — summer, threshold ladder and six comparators" },
+      { src: "/projects/akordator/akordator-sim-amplifier.png", alt: "LTspice instrumentation amplifier transient", caption: "LTspice — amplifier output centred on 1.65 V, no clipping (±200 mV, 100 Hz input)" },
+      { src: "/projects/akordator/akordator-sim-filters-bode.png", alt: "LTspice Bode plot of the four band-pass filters", caption: "LTspice — AC sweep of the four band-pass filters with E24 resistor values" },
+      { src: "/projects/akordator/akordator-ltspice-power-path.png", alt: "LTspice power path schematic", caption: "LTspice — power path (LTC3625 + two supercaps + LTC3240-3.3)" },
+      { src: "/projects/akordator/akordator-sim-supercap-discharge.png", alt: "LTspice supercapacitor discharge", caption: "LTspice — discharge in scaled time (25 µF standing in for 25 F, ×10⁶): 3.3 V held until the stack falls to about 1.7 V" },
+      { src: "/projects/akordator/akordator-sim-leds-41hz.png", alt: "LTspice comparator outputs at 41 Hz", caption: "LTspice — 41 Hz input (E string in tune): every threshold is crossed" },
+      { src: "/projects/akordator/akordator-sim-leds-60hz.png", alt: "LTspice comparator outputs at 60 Hz", caption: "LTspice — 60 Hz input (between E1 and A1): only the lower thresholds trigger" },
+    ],
+    sections: [
+      {
+        heading: "Overview",
+        paragraphs: [
+          "Team project of the HEPIA electronics course (2nd year): design a portable tuner for a 4-string bass guitar using analog electronics only, with no microcontroller and no digital signal processing. The client brief asked for a 6.35 mm jack input, an LED display of tuning accuracy, at least 1 h of autonomy from supercapacitors, USB recharge in under 1 h (750 mA budget), an ON/OFF switch, a charge indicator, a unit cost under CHF 40, SMD parts and E24 resistors, with imposed ICs (LTC3625, LTC3240-3.3, LTC6246, LMV339).",
+          "The work ran in two phases: eight weeks of analytical sizing and LTspice validation in a team of two (with Dhurim Ajrizi), block by block over a five-week plan, then eight weeks of individual work in Altium: schematic capture of the instructor's final reference circuit and the design of the PCB.",
+        ],
+      },
+      {
+        heading: "How it works",
+        bullets: [
+          "The open-string fundamentals come from equal temperament (A = 440 Hz): E1 41.2 Hz, A1 55.0 Hz, D2 73.4 Hz, G2 98.0 Hz",
+          "An instrumentation amplifier lifts the ±200 mV pickup signal into the 0.1–3.1 V window of a single 3.3 V supply, biased on a mid-rail reference (1.65 V in the LTspice design, a 1.5 V precision reference on the board)",
+          "Four parallel second-order band-pass filters isolate the four fundamentals: a string that drifts away from its target falls onto the filter skirt and its amplitude drops",
+          "An inverting summer merges the four filter outputs into one signal; a ladder of comparators lights one more LED each time the amplitude crosses the next threshold",
+          "The tuner therefore turns a frequency measurement into an amplitude measurement: the more LEDs lit, the closer the played string is to its target frequency",
+          "Power path: USB 5 V → LTC3625 charges two supercapacitors in series with automatic mid-point balancing (PGOOD drives the charge-complete LED) → ON/OFF switch → LTC3240-3.3 charge pump regulates 3.3 V from a 1.8–5.5 V input",
+        ],
+      },
+      {
+        heading: "Design & simulation (LTspice)",
+        bullets: [
+          "Split the brief into five blocks (power, amplification, filtering, summation, comparison), sized each analytically, and validated each one in LTspice before assembling them",
+          "Power: energy budget of about 8 mA at 3.3 V (3 LEDs at 2 mA plus 33 % margin, 26 mW) over 1 h, about 95 J, giving supercapacitors of roughly 25–30 F per cell; programmed the charge current with R_PROG inside the 750 mA USB budget; simulated the full discharge in scaled time (25 µF standing in for 25 F, ×10⁶)",
+          "Why supercapacitors: more than 500 000 charge cycles versus about 1000 for Li-ion, and charging in seconds to minutes",
+          "Amplification: three-op-amp instrumentation amplifier chosen for CMRR, high input impedance and single-resistor gain; equal resistors in the differential stage (6.8 kΩ) make the gain 1 + 2·R2/R1; the gain limit comes from the headroom, (3.1 − 1.65) V / 0.2 V = 7.25, so R1 = 2.2 kΩ gives 7.18",
+          "Filtering: multiple-feedback band-pass cells (one op-amp each) sized with the f0 / Q / gain relations for Q = 10 and unity gain; the same resistor set is reused on all four strings and only the capacitor changes (0.82 / 0.62 / 0.47 / 0.35 µF), which limits the number of part references; a follower buffer isolates each cell from the others",
+          "Method: every filter checked first in the time domain (no clipping inside 0–3 V), then with an AC sweep, as the course prescribes",
+          "Summer and comparators: unity inverting summer around mid-rail; threshold ladder from six equal 100 kΩ resistors (1.925 V to 3.025 V); LED pull-ups sized with R = (Vcc − Vf − Vce,sat) / I for about 2 mA (680 Ω red, 220 Ω green)",
+        ],
+      },
+      {
+        heading: "Schematic & PCB (Altium)",
+        bullets: [
+          "Captured the six-sheet hierarchical schematic of the instructor's final reference circuit: top level, power, amplification, two filter sheets, summer and comparators",
+          "Reference circuit vs. my LTspice design: LMV358 op-amps and LM393 comparators, six thresholds (about 1.7, 1.9, 2.2, 2.5, 2.8, 3.1 V from resistor dividers), 1 µF AC-coupled summer inputs, a 1.5 V precision reference (ISL21010), and positive-feedback (Q-enhanced) band-pass cells that go beyond the plain multiple-feedback filters",
+          "Power section: micro-USB input with common-mode choke, LTC3625 charger (R_PROG 180 kΩ, about 0.75 A), 2.2 µH inductor rated for 2 A, slide switch on the supercapacitor stack, charge-complete LED driven by PGOOD",
+          "Board laid out in labelled zones (power, amplifier, filters, supercapacitors, comparators, LED bar) so the analog chain flows from the jack to the LEDs",
+          "Eight local supply islands, one ferrite bead plus 10 nF per IC, to keep the high-gain filter stages from talking to each other through the 3.3 V rail",
+          "About 30 test points on every stage, plus dedicated ground points for the oscilloscope probe, to make bring-up and comparison with the simulations easy",
+        ],
+      },
+      {
+        heading: "Results",
+        bullets: [
+          "Instrumentation amplifier: output swings roughly 0.25–3.1 V around 1.65 V for a ±200 mV, 100 Hz input, with no clipping",
+          "Filters: the AC sweep shows the four band-pass peaks close to 41.2, 55, 73.4 and 98 Hz with E24/E48 values",
+          "Comparators: at 41 Hz (E string in tune) every threshold is crossed and all five LEDs light; at 60 Hz, between two strings, only the lower thresholds trigger and the green LED stays off",
+          "LED currents of about 1.9 mA (red) and 2.05 mA (green) with the E24 pull-ups",
+          "Power: 3.3 V held while the supercapacitor stack falls from 4.8 V to about 1.7 V, with simulated autonomy above the 1 h requirement",
+          "Complete six-sheet schematic and V1.0 PCB layout (June 2026)",
+        ],
+      },
+      {
+        heading: "Limitations & next steps",
+        bullets: [
+          "Amplitude-only detection: the tuner cannot tell whether a string is sharp or flat; a zero-crossing frequency counter on a small microcontroller, or a PLL / analog mixer, would give the direction and a resolution near one cent",
+          "Selectivity vs. tolerance: Q = 10 is low for precise tuning (the second harmonic of E1, 82.4 Hz, sits close to the D2 fundamental at 73.4 Hz); a higher Q needs 1 % or better resistors, which is what the reference board pushes towards with positive-feedback cells",
+          "Budget lesson: the brief assumed 1 mA per LED, but the approved suppliers only stock LEDs needing 2 mA or more, so the supercapacitor sizing had to be redone; next time, pick the parts before doing the power budget",
+          "Next: bring-up and measurement of the V1.0 board against the LTspice results, and string-identification LEDs",
+        ],
+      },
+      {
+        heading: "What this shows",
+        bullets: [
+          "Turning a system specification into independent analog blocks that can be sized by hand and verified in simulation before layout",
+          "First-principles analog design: single-supply biasing, output headroom, filter sizing, threshold ladders, energy budgets",
+          "Mixed-signal PCB discipline: zoning, per-IC supply filtering, test points and documentation",
+          "Critical self-review: quantified limitations and a concrete improvement path",
+        ],
+      },
+    ],
+  },
+  {
   slug: "Mission CDG",
   title: "Robotics contest – Mission CDG",
   subtitle: "Winner of the robotics contest at University of applied sciences, HEPIA — system architecture, constraint-driven design, and execution under uncertainty",

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 800" role="img" aria-labelledby="t d" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="t">Akordator signal chain and power path</title>
+  <desc id="d">Signal path: bass jack, instrumentation amplifier, four band-pass filters (E1, A1, D2, G2), inverting summer, comparator ladder, LED level bar. Power path: USB 5 V, LTC3625 supercapacitor charger, two supercapacitors, ON/OFF switch, LTC3240-3.3 regulator.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#5f6368" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="780" height="800" fill="#ffffff"/>
+
+  <text x="30" y="30" font-size="15" fill="#5f6368">Signal path</text>
+  <text x="470" y="30" font-size="15" fill="#5f6368">Power path</text>
+
+  <!-- SIGNAL COLUMN -->
+  <g fill="#f7f7f8" stroke="#e9eaec" stroke-width="1.5">
+    <rect x="30" y="46" width="400" height="76" rx="12"/>
+    <rect x="30" y="156" width="400" height="76" rx="12"/>
+    <rect x="30" y="266" width="400" height="156" rx="12"/>
+    <rect x="30" y="456" width="400" height="76" rx="12"/>
+    <rect x="30" y="566" width="400" height="76" rx="12"/>
+    <rect x="30" y="676" width="400" height="76" rx="12"/>
+  </g>
+  <g stroke="#5f6368" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <line x1="230" y1="122" x2="230" y2="154"/>
+    <line x1="230" y1="232" x2="230" y2="264"/>
+    <line x1="230" y1="422" x2="230" y2="454"/>
+    <line x1="230" y1="532" x2="230" y2="564"/>
+    <line x1="230" y1="642" x2="230" y2="674"/>
+  </g>
+  <g fill="#0b0b0c" font-size="18" font-weight="600">
+    <text x="50" y="78">Bass jack (6.35 mm)</text>
+    <text x="50" y="188">Instrumentation amplifier</text>
+    <text x="50" y="298">Band-pass filter bank</text>
+    <text x="50" y="488">Inverting summer</text>
+    <text x="50" y="598">Comparator ladder</text>
+    <text x="50" y="708">LED level bar</text>
+  </g>
+  <g fill="#5f6368" font-size="15">
+    <text x="50" y="102">pickup signal, about ±200 mV peak</text>
+    <text x="50" y="212">gain ≈ 8, centred on a mid-rail reference</text>
+    <text x="50" y="322">one narrow second-order cell per open string</text>
+    <text x="50" y="512">four filter outputs merged into one signal</text>
+    <text x="50" y="622">6 thresholds from about 1.7 V to 3.1 V</text>
+    <text x="50" y="732">the more LEDs lit, the closer to the target note</text>
+  </g>
+  <!-- filter chips -->
+  <g fill="#ffffff" stroke="#d7d9dd" stroke-width="1.5">
+    <rect x="48" y="342" width="84" height="62" rx="9"/>
+    <rect x="142" y="342" width="84" height="62" rx="9"/>
+    <rect x="236" y="342" width="84" height="62" rx="9"/>
+    <rect x="330" y="342" width="84" height="62" rx="9"/>
+  </g>
+  <g fill="#0b0b0c" font-size="17" font-weight="600" text-anchor="middle">
+    <text x="90" y="368">E1</text><text x="184" y="368">A1</text><text x="278" y="368">D2</text><text x="372" y="368">G2</text>
+  </g>
+  <g fill="#5f6368" font-size="14" text-anchor="middle">
+    <text x="90" y="391">41.2 Hz</text><text x="184" y="391">55 Hz</text><text x="278" y="391">73.4 Hz</text><text x="372" y="391">98 Hz</text>
+  </g>
+  <!-- LEDs -->
+  <g stroke="#0b0b0c" stroke-width="1.6">
+    <circle cx="352" cy="705" r="8.5" fill="#0b0b0c"/>
+    <circle cx="326" cy="705" r="8.5" fill="#0b0b0c"/>
+    <circle cx="300" cy="705" r="8.5" fill="#0b0b0c"/>
+    <circle cx="274" cy="705" r="8.5" fill="#0b0b0c"/>
+    <circle cx="248" cy="705" r="8.5" fill="#ffffff"/>
+    <circle cx="222" cy="705" r="8.5" fill="#ffffff"/>
+  </g>
+
+  <!-- POWER COLUMN -->
+  <g fill="#f7f7f8" stroke="#e9eaec" stroke-width="1.5">
+    <rect x="470" y="46" width="280" height="76" rx="12"/>
+    <rect x="470" y="156" width="280" height="76" rx="12"/>
+    <rect x="470" y="266" width="280" height="76" rx="12"/>
+    <rect x="470" y="376" width="280" height="76" rx="12"/>
+    <rect x="470" y="486" width="280" height="76" rx="12"/>
+  </g>
+  <g stroke="#5f6368" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <line x1="610" y1="122" x2="610" y2="154"/>
+    <line x1="610" y1="232" x2="610" y2="264"/>
+    <line x1="610" y1="342" x2="610" y2="374"/>
+    <line x1="610" y1="452" x2="610" y2="484"/>
+  </g>
+  <g fill="#0b0b0c" font-size="18" font-weight="600">
+    <text x="488" y="78">USB 5 V</text>
+    <text x="488" y="188">LTC3625</text>
+    <text x="488" y="298">2 supercaps</text>
+    <text x="488" y="408">ON/OFF switch</text>
+    <text x="488" y="518">LTC3240-3.3</text>
+  </g>
+  <g fill="#5f6368" font-size="15">
+    <text x="488" y="102">micro-B, 750 mA budget</text>
+    <text x="488" y="212">balanced 2-cell charger</text>
+    <text x="488" y="322">in series, 4.8 V max</text>
+    <text x="488" y="432">cuts the converter input</text>
+    <text x="488" y="542">regulated 3.3 V rail</text>
+  </g>
+  <!-- rails -->
+  <g fill="none" stroke="#5f6368" stroke-width="1.5" stroke-dasharray="5 5">
+    <rect x="470" y="596" width="280" height="156" rx="12"/>
+  </g>
+  <g fill="#0b0b0c" font-size="16" font-weight="600">
+    <text x="488" y="626">Feeds every stage</text>
+  </g>
+  <g fill="#5f6368" font-size="15">
+    <text x="488" y="654">3.3 V rail, one ferrite</text>
+    <text x="488" y="674">bead + 10 nF per IC</text>
+    <text x="488" y="706">1.5 V reference: mid-rail bias</text>
+    <text x="488" y="726">for amp, filters and summer</text>
+  </g>
+</svg>
