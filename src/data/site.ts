@@ -14,14 +14,14 @@ export const site = {
   seo: {
     url: "https://chouca14.github.io",
     description:
-      "Portfolio of Guilhem Rozier Vilardell — microengineering (electronics) student focused on prototyping, automation, and industrial execution.",
+      "Portfolio of Guilhem Rozier Vilardell — third-year microengineering (electronics) student: embedded control, data acquisition, PCB design, automation, and prototyping.",
   },
 
   about: {
     intro:
-      "3rd year in BCs. Microengineering. Specializing in electronics, with hands-on experience in automation, and prototyping through real-world projects.",
+      "Third-year BSc student in Microengineering (electronics orientation) at HEPIA, with hands-on experience in embedded control, ADC-based data acquisition, PCB design, and industrial automation, validated through real hardware projects. Currently building FPGA fundamentals (third-year curriculum, autumn 2026).",
     goal:
-      "Seeking an industrial or R&D internship where I can learn practical engineering skills, autonomy, and systems-level problem solving.",
+      "Looking for a semester project starting November 2026 (one day per week), leading into a full-time Bachelor thesis from mid-March to mid-July 2027, in electronics, instrumentation, and embedded systems.",
     bullets: [
       "I like fast iteration loops: define constraints → prototype → measure → improve.",
       "Comfortable bridging mechanics, electronics, and software to ship reliable prototypes.",
@@ -31,23 +31,36 @@ export const site = {
 
   experience: [
     {
+      company: "Renault",
+      location: "Paris, France",
+      role: "Internship",
+      period: "Jul 2026",
+      bullets: [
+        "Built Node-RED flows for industrial data acquisition and control from cameras and industrial robot arms, supporting AI-based image processing for quality control.",
+        "Developed a dashboard for real-time visualisation and analysis of production-line performance.",
+        "Wrote the code for an internal training application teaching Renault employees about security protocols.",
+      ],
+    },
+    {
       company: "Haleon",
       location: "Nyon, Switzerland",
-      role: "Cleaning Agent — GMP Risk Zone",
+      role: "Cleaning Operator — GMP High-Risk Zone",
       period: "2023–2025",
       bullets: [
-        "Worked in GMP-controlled pharmaceutical production environments under strict hygiene, traceability, and safety constraints.",
-        "Built discipline for regulated environments and standard operating procedures.",
+        "Cleaning operations in a regulated pharmaceutical factory: strict procedural compliance, traceability, and operational reliability.",
+        "Worked across different risk zones, each with its own protocols and procedures.",
       ],
     },
     {
       company: "GS3Dfactory",
       location: "Nyon, Switzerland",
-      role: "Co-Founder & Managing Partner",
+      role: "Co-Founder & CTO",
       period: "2020–2022",
       bullets: [
-        "Led prototyping and small-scale production of a medical device from mechanical design to manufactured prototype.",
-        "Coordinated testing/iteration cycles and supplier interactions under real production constraints.",
+        "Designed and produced mask fasteners during the pandemic, from prototyping with GHOL hospital to a finished product sold to hospitals, clinics, and pharmacies in Switzerland.",
+        "Ran 3D manufacturing, stock management, and logistics for small-batch production.",
+        "Built a custom ERP system for production and order management, and a custom website for product promotion and sales.",
+        "Planned tests and iterated with suppliers and customers under real production constraints.",
       ],
     },
     {
@@ -64,9 +77,15 @@ export const site = {
   education: [
     {
       school: "HEPIA — University of Applied Sciences, Geneva",
-      degree: "BSc in Microengineering (Electronics specialization)",
+      degree: "BSc in Microengineering (Electronics orientation)",
       period: "2024–Present",
       note: "Grade: 5.3 / 6",
+    },
+    {
+      school: "University of Southern Denmark (SDU), Odense",
+      degree: "Summer School in AI for Healthcare Data",
+      period: "Aug 2026",
+      note: "Grade: 5.0 / 6",
     },
     {
       school: "CPNV, Yverdon",
@@ -79,6 +98,7 @@ export const site = {
   skills: {
     "Mechanical & Manufacturing": [
       "SolidWorks",
+      "Creo",
       "Fusion 360",
       "Inventor",
       "3D printing",
@@ -90,17 +110,28 @@ export const site = {
       "ESP32",
       "Arduino",
       "Raspberry Pi",
+      "ADC/DAC",
       "sensors & measurement",
+      "analog circuit design",
+      "LTspice",
       "QSpice",
     ],
+    "Digital Design": ["FPGA fundamentals (in progress)"],
     "Automation & Control": [
       "Siemens PLCs (TIA Portal)",
       "industrial I/O",
       "HMI concepts",
+      "PID control",
+      "feedback systems & stability analysis",
+      "signal acquisition & processing",
+      "Node-RED",
     ],
     Programming: ["Python", "C/C++", "MATLAB"],
     Workflow: ["design → prototype → test → iterate", "documentation", "Git/GitHub"],
   },
+
+  interests:
+    "Handball (1st league player, coach & referee) · Ironman finisher · Ski instructor · Volunteer firefighter, Nyon",
 
   languages: [
     "French (native)",

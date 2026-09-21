@@ -266,7 +266,7 @@ export const projects: Project[] = [
     subtitle: "Prototype → production: designed and manufactured mask fasteners for medical and consumer customers",
     year: "2020–2022",
     tags: ["Product development", "OnShape", "Manufacturing", "Iteration", "Suppliers"],
-    role: "Co-founder & managing partner",
+    role: "Co-founder & CTO",
     highlights: [
       "Designed on OnShape and iterated with healthcare professionals",
       "Optimized production time, printer settings, and post-processing",
