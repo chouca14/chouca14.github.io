@@ -55,7 +55,7 @@ const latest = projects.slice(0, 2);
   <section aria-label="Latest projects" class="latest">
     <div class="latestHead">
       <h2>Latest projects</h2>
-      <a href="/projects">See all →</a>
+      <a class="seeAll" href="/projects">See all <span class="arrow" aria-hidden="true">→</span></a>
     </div>
 
     <section class="projectsGrid" aria-label="Project preview">
@@ -134,11 +134,49 @@ const latest = projects.slice(0, 2);
 
   .latestHead {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
+  }
+
+  .seeAll {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.05rem;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .seeAll:hover {
+    background: var(--text);
+    color: var(--bg);
+    opacity: 1;
+  }
+
+  .seeAll:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+  }
+
+  .seeAll .arrow {
+    transition: transform 0.15s ease;
+  }
+
+  .seeAll:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .seeAll,
+    .seeAll .arrow {
+      transition: none;
+    }
   }
 
   @media (max-width: 900px) {
