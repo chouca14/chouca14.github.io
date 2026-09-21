@@ -19,9 +19,9 @@ export const site = {
 
   about: {
     intro:
-      "2nd year in BCs. Microengineering. Specializing in electronics, with strong hands-on experience in manufacturing, automation, and prototyping.",
+      "3rd year in BCs. Microengineering. Specializing in electronics, with hands-on experience in automation, and prototyping through real-world projects.",
     goal:
-      "Seeking an industrial or R&D internship where I can bring practical engineering skills, autonomy, and systems-level problem solving.",
+      "Seeking an industrial or R&D internship where I can learn practical engineering skills, autonomy, and systems-level problem solving.",
     bullets: [
       "I like fast iteration loops: define constraints → prototype → measure → improve.",
       "Comfortable bridging mechanics, electronics, and software to ship reliable prototypes.",

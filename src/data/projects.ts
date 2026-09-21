@@ -246,11 +246,11 @@ export const projects: Project[] = [
       "Achieved ~60% reduction in print time while improving reliability and material compatibility",
       "Focused on repeatable calibration and maintainable configuration",
     ],
-    cover: { src: "/projects/placeholder.svg", alt: "Voron printer cover image" },
+    cover: { src: "/projects/voron/IMG_3900.jpeg", alt: "Voron printer cover image" },
     gallery: [
-      { src: "/projects/placeholder.svg", alt: "Printer overview (placeholder)", caption: "Overview" },
-      { src: "/projects/placeholder.svg", alt: "Motion / calibration (placeholder)", caption: "Calibration" },
-      { src: "/projects/placeholder.svg", alt: "Printed parts results (placeholder)", caption: "Results" },
+      { src: "/projects/voron/IMG_3900.jpeg", alt: "Printer overview (placeholder)", caption: "Overview" },
+      { src: "/projects/voron/IMG_3899.jpeg", alt: "Motion / calibration (placeholder)", caption: "Result" },
+      { src: "/projects/voron/IMG_0259.jpeg", alt: "Printed parts results (placeholder)", caption: "Electronics" },
     ],
     sections: [
       { heading: "Overview", paragraphs: ["A high-performance custom 3D printer build focused on speed, reliability, and repeatable print quality."] },
